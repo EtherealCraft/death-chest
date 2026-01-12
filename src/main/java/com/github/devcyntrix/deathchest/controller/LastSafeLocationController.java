@@ -8,7 +8,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
 
-import javax.annotation.Nullable;
 import java.util.List;
 
 @Singleton
@@ -46,7 +45,7 @@ public class LastSafeLocationController {
         }
     }
 
-    public @Nullable Location getPosition(Player player) {
+    public Location getPosition(Player player) {
         List<MetadataValue> metadata = player.getMetadata(lastSafePosition);
         if (metadata.isEmpty())
             return null;

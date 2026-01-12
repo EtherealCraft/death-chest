@@ -28,7 +28,7 @@ repositories {
 
 dependencies {
     compileOnly("com.google.inject:guice:7.0.0")
-    compileOnly("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.21.10-R0.1-SNAPSHOT")
     compileOnly("net.kyori:adventure-platform-bukkit:4.3.0")
     compileOnly("net.kyori:adventure-text-minimessage:4.14.0")
     compileOnly("net.kyori:adventure-text-serializer-legacy:4.14.0")
@@ -46,7 +46,6 @@ dependencies {
     compileOnly("com.github.TechFortress:GriefPrevention:16.18") { isTransitive = false }
     compileOnly("br.net.fabiozumbi12.RedProtect:RedProtect-Core:7.7.3") { isTransitive = false }
     compileOnly("br.net.fabiozumbi12.RedProtect:RedProtect-Spigot:7.7.3") { isTransitive = false }
-    compileOnly("pl.minecodes.plots:plugin-api:4.0.0")
 
     // Animation Support
     compileOnly("com.comphenix.protocol:ProtocolLib:5.3.0") { isTransitive = false }

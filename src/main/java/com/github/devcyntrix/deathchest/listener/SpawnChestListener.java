@@ -62,7 +62,7 @@ public class SpawnChestListener implements Listener {
      *
      * @param event the event from the bukkit api
      */
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onDeath(PlayerDeathEvent event) {
 
         plugin.debug(0, "Spawning death chest...");

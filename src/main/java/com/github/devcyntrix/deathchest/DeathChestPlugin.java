@@ -119,6 +119,8 @@ public class DeathChestPlugin extends JavaPlugin implements DeathChestService {
         this.test = false;
     }
 
+    private static DeathChestPlugin instance = null;
+
     /**
      * This method cleans the whole plugin up
      */
@@ -235,6 +237,7 @@ public class DeathChestPlugin extends JavaPlugin implements DeathChestService {
     @SneakyThrows
     @Override
     public void onEnable() {
+        instance = this;
         debug(0, "Loading configuration file...");
         if (!isTest())
             reloadConfig();
@@ -248,6 +251,10 @@ public class DeathChestPlugin extends JavaPlugin implements DeathChestService {
             debug(0, "Starting metrics...");
             new Metrics(this, BSTATS_ID);
         }
+    }
+
+    public static DeathChestPlugin getInstance() {
+        return instance;
     }
 
     private void initializeServices() {

@@ -49,7 +49,7 @@ public class BlockView implements ChestView, Listener {
                 Location location = model.getLocation();
                 Block block = location.getBlock();
                 if (!plugin.isTest())
-                    world.spawnParticle(Particle.BLOCK_CRACK, location.clone().add(0.5, 0.5, 0.5), 10, block.getBlockData());
+                    world.spawnParticle(Particle.BLOCK, location.clone().add(0.5, 0.5, 0.5), 10, block.getBlockData());
             }
         } catch (Exception e) {
             plugin.getLogger().log(Level.WARNING, "Failed to play block crack particle", e);

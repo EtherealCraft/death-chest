@@ -33,11 +33,11 @@ public class ParticleView implements ChestView {
         BukkitTask bukkitTask = new ParticleRunnable(model.getLocation(), options.count(), options.radius(), particleLocation -> {
             // Orange dust
             Location orangeDust = particleLocation.clone().add(0.5, 0.5, 0.5); // Center the particle location
-            Bukkit.getScheduler().runTask(plugin, () -> world.spawnParticle(Particle.REDSTONE, orangeDust, 1, orangeDustOptions));
+            Bukkit.getScheduler().runTask(plugin, () -> world.spawnParticle(Particle.DUST, orangeDust, 1, orangeDustOptions));
 
             // Aqua dust
             Location aquaDust = orangeDust.clone().subtract(0, 0.1, 0);
-            Bukkit.getScheduler().runTask(plugin, () -> world.spawnParticle(Particle.REDSTONE, aquaDust, 1, aquaDustOptions));
+            Bukkit.getScheduler().runTask(plugin, () -> world.spawnParticle(Particle.DUST, aquaDust, 1, aquaDustOptions));
 
         }).runTaskTimerAsynchronously(this.plugin, 0, (long) (20 / options.speed()));
         model.getTasks().add(bukkitTask::cancel);

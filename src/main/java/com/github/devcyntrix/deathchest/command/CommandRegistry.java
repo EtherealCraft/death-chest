@@ -35,7 +35,7 @@ public class CommandRegistry {
     public void registerCommands(DeathChestPlugin plugin) {
         Command.Builder<CommandSender> rootCommand = commandManager.commandBuilder("deathchest");
 
-        commandManager.command(rootCommand);
+        commandManager.command(new ListCommandProvider(plugin).provide(rootCommand));
 
         commandManager.command(
                 new ReloadCommandProvider(plugin)
