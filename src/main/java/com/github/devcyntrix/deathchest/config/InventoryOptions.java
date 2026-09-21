@@ -24,7 +24,7 @@ public record InventoryOptions(
 
     public Inventory createInventory(DeathChestModel model, Function<String, String> placeholder, ItemStack... stacks) {
         String title = placeholder.apply(title());
-        var inventory = Bukkit.createInventory(model, size().getSize(stacks.length), title);
+        var inventory = Bukkit.createInventory(model, Math.min(9, size().getSize(stacks.length)), title);
         inventory.setContents(stacks);
         return inventory;
     }

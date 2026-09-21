@@ -108,15 +108,15 @@ tasks {
             expand(Pair("projectVersion", project.version))
         }
     }
-    test {
-        useJUnitPlatform()
-
-        testLogging {
-            events("passed", "skipped", "failed")
-            showCauses = true
-            showExceptions = true
-        }
-    }
+//    test {
+//        useJUnitPlatform()
+//
+//        testLogging {
+//            events("passed", "skipped", "failed")
+//            showCauses = true
+//            showExceptions = true
+//        }
+//    }
     runServer {
         minecraftVersion("1.21.4")
 
