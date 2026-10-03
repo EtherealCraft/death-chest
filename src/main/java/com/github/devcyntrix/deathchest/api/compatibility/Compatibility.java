@@ -1,10 +1,10 @@
 package com.github.devcyntrix.deathchest.api.compatibility;
 
 import com.github.devcyntrix.deathchest.DeathChestPlugin;
-import lombok.Getter;
 import org.bukkit.Server;
 
-@Getter
+import java.util.logging.Level;
+
 public abstract class Compatibility {
 
     private boolean enabled;
@@ -23,11 +23,11 @@ public abstract class Compatibility {
             enable(plugin);
             this.enabled = true;
         } catch (Exception e) {
-            e.printStackTrace();
+            plugin.getLogger().log(Level.WARNING, "Failed to enable compatibility %s".formatted(getClass().getCanonicalName()), e);
             try {
                 disable(plugin);
             } catch (Exception e1) {
-                e1.printStackTrace();
+                plugin.getLogger().log(Level.WARNING, "Failed to disable compatibility %s".formatted(getClass().getCanonicalName()), e1);
             }
         }
         return enabled;
@@ -44,5 +44,9 @@ public abstract class Compatibility {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 }

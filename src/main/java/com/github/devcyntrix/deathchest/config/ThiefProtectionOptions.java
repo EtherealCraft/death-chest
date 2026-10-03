@@ -2,8 +2,10 @@ package com.github.devcyntrix.deathchest.config;
 
 import com.github.devcyntrix.deathchest.DeathChestPlugin;
 import com.google.gson.annotations.SerializedName;
-import net.kyori.adventure.key.Key;
-import org.bukkit.*;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Registry;
+import org.bukkit.Sound;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.Contract;
@@ -42,7 +44,7 @@ public record ThiefProtectionOptions(
         float pitch = 1.0F;
         if (soundString != null) {
             String[] soundArray = soundString.split(";", 3);
-            sound = Registry.SOUNDS.get(new NamespacedKey(DeathChestPlugin.getInstance(), soundArray[0].toUpperCase()));
+            sound = Registry.SOUNDS.match(soundArray[0]);
             volume = Float.parseFloat(soundArray[1]);
             pitch = Float.parseFloat(soundArray[2]);
         }
